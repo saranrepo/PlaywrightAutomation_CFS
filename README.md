@@ -120,7 +120,7 @@ utils
 
 
 ```
-git clone <repository-url>
+git clone https://github.com/saranrepo/PlaywrightAutomation_CFS.git
 ```
 
 
