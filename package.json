@@ -1,0 +1,22 @@
+{
+  "name": "playwrightassessment_cfs",
+  "version": "1.0.0",
+  "description": "QA Automation Technical Assessment using Playwright JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "ui": "playwright test tests/ui",
+    "api": "playwright test tests/api",
+    "headed": "playwright test --headed",
+    "chrome": "playwright test --project=chromium",
+    "report": "playwright show-report"
+  },
+  "keywords": [],
+  "author": "Sarankumar",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.1.2"
+  }
+}
