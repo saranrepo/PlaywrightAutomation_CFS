@@ -88,7 +88,7 @@ test.describe('eBay UI Automation Assessment', () => {
 
                 await categoryPage.verifyCategoryLoaded();
 
-
+                await expect(page.getByRole('button',{name:'Search'})).toBeVisible(); 
 
                 await ScreenshotUtil.capture(
                     page,
