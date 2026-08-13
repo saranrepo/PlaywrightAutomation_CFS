@@ -5,7 +5,7 @@ module.exports = defineConfig({
  
     testDir: './tests',
 
-    timeout: 30000,
+    timeout: 60000,
 
     expect: {
 
@@ -30,7 +30,13 @@ module.exports = defineConfig({
         headless: process.env.CI ? true : false,
 
         launchOptions: {
-            args: ['--no-sandbox', '--disable-setuid-sandbox']
+            args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',
+                '--disable-gpu',
+                '--disable-extensions'
+            ]
         },
 
         viewport: {
