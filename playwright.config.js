@@ -13,6 +13,8 @@ module.exports = defineConfig({
 
     },
 
+    workers: 1,
+    
     fullyParallel: false,
 
     retries: 1,
