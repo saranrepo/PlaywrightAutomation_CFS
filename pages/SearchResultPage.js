@@ -1,6 +1,10 @@
 const { expect } = require('@playwright/test');
 
 class SearchResultPage {
+    /**
+     * 
+     * @param {import ('@playwright/test').Page} page 
+     */
 
     constructor(page) {
 
@@ -16,7 +20,9 @@ class SearchResultPage {
 
         await expect(this.page.locator(this.resultList))
             .toBeVisible();
-
+        await expect(this.page.locator(`${this.resultList}:visible`)); 
+        //await expect(this.page.getByText("2026 ASUS Vivobook 16")).toBeVisible();   
+        
     }
 
     async verifySearchKeyword(keyword) {

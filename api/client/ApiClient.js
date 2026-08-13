@@ -70,7 +70,6 @@ class ApiClient {
 
     async deletePet(id){
 
-
         return await this.request.delete(
 
     `${this.baseURL}${Endpoints.PET_BY_ID(id)}`

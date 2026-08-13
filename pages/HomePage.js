@@ -1,4 +1,9 @@
+const { expect } = require('@playwright/test');
 class HomePage {
+/**
+ * 
+ * @param {import('@playwright/test').Page} page 
+ */
 
     constructor(page) {
         this.page = page;
@@ -6,7 +11,6 @@ class HomePage {
         // Search
         this.searchBox = '#gh-ac';
         this.searchButton = '#gh-search-btn';
-
         // Navigation
         //this.shopByCategoryButton = '#gh-shop-a';
         this.shopByCategoryButton = '.gh-categories__title';

@@ -36,4 +36,4 @@ class Constants {
 
 }
 
-module.exports = Constants;
+module.exports=Constants;

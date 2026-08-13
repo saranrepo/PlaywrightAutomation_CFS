@@ -1,22 +1,11 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
+const { defineConfig, devices } = require('@playwright/test');
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
-export default defineConfig({
+module.exports = defineConfig({
  
     testDir: './tests',
 
-    timeout: 60000,
+    timeout: 30000,
 
     expect: {
 
@@ -38,7 +27,11 @@ export default defineConfig({
 
     use: {
 
-        headless: true,
+        headless: process.env.CI ? true : false,
+
+        launchOptions: {
+            args: ['--no-sandbox', '--disable-setuid-sandbox']
+        },
 
         viewport: {
 
@@ -52,11 +45,9 @@ export default defineConfig({
 
         screenshot: "only-on-failure",
 
-        trace: "retain-on-failure",
+        trace: "on",
 
-        video: "retain-on-failure",
-
-        baseURL: "https://petstore.swagger.io/v2"
+        video: "retain-on-failure"
 
     },
 

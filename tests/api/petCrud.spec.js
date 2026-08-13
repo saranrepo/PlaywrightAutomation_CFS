@@ -92,7 +92,6 @@ test.describe('Pet Store API CRUD Automation', () => {
             );
 
 
-
         expect(
             getResponse.status()
         ).toBe(200);
@@ -182,13 +181,12 @@ test.describe('Pet Store API CRUD Automation', () => {
 
 
 
-        const verifyUpdatedPet =
-            await verifyUpdateResponse.json();
+        const updatedPetJson = await verifyUpdateResponse.json();
 
 
 
         expect(
-            verifyUpdatedPet.name
+            updatedPetJson.name
         ).toBe(
             updatedName
         );
@@ -243,6 +241,16 @@ test.describe('Pet Store API CRUD Automation', () => {
 
     });
 
+    test('Get API Not found validation with Invalid ID',async ({request})=>{
+        const api=new ApiClient(request);
+        const petPayload =
+            PetFactory.createPet();
+        console.log("Payload "+petPayload);    
+        const getPetResponse=
+            await api.getPet(petPayload.id);
+        expect(getPetResponse.status()).toBe(404);
+        
+    });
 
 
 });

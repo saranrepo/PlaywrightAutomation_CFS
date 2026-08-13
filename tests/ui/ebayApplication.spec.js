@@ -20,7 +20,7 @@ test.describe('eBay UI Automation Assessment', () => {
     test('Verify Home Page, Category Navigation and Product Search',
         async ({ page }) => {
 
-
+        
         const homePage =
             new HomePage(page);
 
@@ -46,6 +46,7 @@ test.describe('eBay UI Automation Assessment', () => {
 
 
                 await homePage.navigate();
+                
 
 
                 await homePage.verifyHomePageLoaded();
