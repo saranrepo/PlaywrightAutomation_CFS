@@ -13,8 +13,6 @@ module.exports = defineConfig({
 
     },
 
-    workers: 1,
-    
     fullyParallel: false,
 
     retries: 1,
@@ -29,10 +27,11 @@ module.exports = defineConfig({
 
     use: {
 
-        headless: process.env.CI ? true : false,
+        headless: false,
 
         launchOptions: {
             args: [
+                '--start-maximized',
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
                 '--disable-dev-shm-usage',
@@ -41,13 +40,7 @@ module.exports = defineConfig({
             ]
         },
 
-        viewport: {
-
-            width: 1600,
-
-            height: 900
-
-        },
+        viewport: null,
 
         ignoreHTTPSErrors: true,
 
