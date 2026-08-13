@@ -66,18 +66,6 @@ test.describe('eBay UI Automation Assessment', () => {
 
             });
 
-        // Capture page logs and errors to aid CI diagnostics
-        page.on('console', msg => console.log('PAGE LOG:', msg.type(), msg.text()));
-        page.on('pageerror', err => console.log('PAGE ERROR:', err.toString()));
-        page.on('crash', async () => {
-            console.error('PAGE CRASHED');
-            try {
-                await ScreenshotUtil.capture(page, 'page-crashed');
-            } catch (e) {
-                console.error('Failed to capture crash screenshot', e);
-            }
-        });
-
 
 
         /*
@@ -97,11 +85,10 @@ test.describe('eBay UI Automation Assessment', () => {
 
                 await categoryPage.navigateToElectronics();
 
+
                 await categoryPage.verifyCategoryLoaded();
 
-                // wait for network to settle and assert with a larger timeout in CI
-                await page.waitForLoadState('networkidle');
-                await expect(page.getByRole('button',{name:'Search'})).toBeVisible({ timeout: 15000 }); 
+                await expect(page.getByRole('button',{name:'Search'})).toBeVisible(); 
 
                 await ScreenshotUtil.capture(
                     page,
